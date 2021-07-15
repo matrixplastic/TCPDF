@@ -18920,6 +18920,16 @@ Putting 1 is equivalent to putting 0 and calling Ln() just after. Default value:
 				$prevlinewidth = $this->GetLineWidth();
 				$this->SetLineWidth($hrHeight);
 
+                $a = isset($tag['style']['cap']);
+                if ($a== false)
+                {
+                    // Add here the default value you want
+                    $tag['style']['cap'] = "";
+                    $tag['style']['join'] = "";
+                    $tag['style']['dash'] = "";
+                    $tag['style']['phase'] = "";
+                }
+
 				$lineStyle = array();
                     		if (isset($tag['fgcolor'])) {
 		                        $lineStyle['color'] = $tag['fgcolor'];
