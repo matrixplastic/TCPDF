@@ -4180,17 +4180,17 @@ class TCPDF {
 			return (0);
 		}
 		if (isset($this->CurrentFont['cw'][$char])) {
-			$w = $this->CurrentFont['cw'][$char];
+			$w = (int) $this->CurrentFont['cw'][$char];
 		} elseif (isset($this->CurrentFont['dw'])) {
 			// default width
-			$w = $this->CurrentFont['dw'];
+			$w = (int) $this->CurrentFont['dw'];
 		} elseif (isset($this->CurrentFont['cw'][32])) {
 			// default width
-			$w = $this->CurrentFont['cw'][32];
+			$w = (int) $this->CurrentFont['cw'][32];
 		} else {
 			$w = 600;
 		}
-		return $this->getAbsFontMeasure($w);
+		return (int) $this->getAbsFontMeasure($w);
 	}
 
 	/**
@@ -7357,7 +7357,7 @@ class TCPDF {
 						$color = imagecolorat($img, $xpx, $ypx);
 						// get and correct gamma color
 						$alpha = $this->getGDgamma($img, $color);
-						imagesetpixel($imgalpha, $xpx, $ypx, $alpha);
+						imagesetpixel($imgalpha, (int) $xpx, (int) $ypx, (int) $alpha);
 					}
 				}
 				imagepng($imgalpha, $tempfile_alpha);
